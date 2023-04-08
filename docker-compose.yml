@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+    backend:
+        build:
+          context: ./backend
+          dockerfile: Dockerfile
+        container_name: words-backend
+        ports:
+            - 7600:7600
+        networks:
+            - words-network
+
+    frontend:
+      build:
+        context: ./frontend
+        dockerfile: Dockerfile
+      container_name: words-frontend
+      ports:
+          - 3500:3500
+      networks:
+          - words-network
+
+networks:
+  words-network:
+    external:
+      name: default_services_network

@@ -1,0 +1,6 @@
+flask==2.2.3
+spacy==3.5.1
+python-dotenv
+gunicorn
+pytest
+flask_cors
