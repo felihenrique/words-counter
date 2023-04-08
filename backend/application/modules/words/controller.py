@@ -1,9 +1,9 @@
 from flask import Blueprint, request, jsonify, abort
 from application.modules.words.services import process_text
 
-bp = Blueprint('words', __name__, url_prefix='/')
+bp = Blueprint('words', __name__, url_prefix='/words')
 
-@bp.route('/words/count', methods=['POST'])
+@bp.route('/count', methods=['POST'])
 def count_words():
     body = request.json
     if(body['text'] == None):
