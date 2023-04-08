@@ -11,7 +11,7 @@ import { NoDataText } from "./styles";
 import { Word } from "../../interfaces/word";
 
 export interface WordsTableProps {
-  words?: Word[];
+  words: Word[];
   isLoading?: boolean;
 }
 
@@ -24,7 +24,7 @@ const WordsTable: React.FC<WordsTableProps> = ({ words, isLoading }) => {
       </TableHead>
       <TableBody>
         {isLoading && <Skeleton variant="rectangular" />}
-        {!isLoading && !words && (
+        {!isLoading && words.length == 0 && (
           <NoDataText>
             No words to show. Please the text box to input your text and click
             count words.

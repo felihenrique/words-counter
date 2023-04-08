@@ -12,21 +12,25 @@ const MainScreen = () => {
   return (
     <Grid container padding={5}>
       <Grid item xs={12}>
-        <WordsTextInput
-          value={text}
-          onChange={(event) => setText(event.target.value)}
-          multiline
-          fullWidth
-          label="Text to count"
-          rows={6}
-        />
-        <Button
-          onClick={() => setTextQuery(text)}
-          disabled={isLoading}
-          variant="contained"
-        >
-          Count words
-        </Button>
+        <form onSubmit={e => e.preventDefault()}>
+          <WordsTextInput
+            value={text}
+            onChange={(event) => setText(event.target.value)}
+            multiline
+            fullWidth
+            required
+            label="Text to count"
+            rows={6}
+          />
+          <Button
+            type="submit"
+            onClick={() => setTextQuery(text)}
+            disabled={isLoading}
+            variant="contained"
+          >
+            Count words
+          </Button>
+        </form>
         {error && <Alert severity="error">{error}</Alert>}
       </Grid>
       <Grid item xs={6} marginTop={2}>
